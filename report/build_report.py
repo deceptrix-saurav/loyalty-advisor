@@ -53,6 +53,7 @@ def img_uri(name):
 def shot(name, caption, how="python scripts/capture_evidence.py"):
     uri = img_uri(name)
     if uri:
+        caption = "Illustrative demo screenshot — " + caption
         return f'<figure><img src="{uri}" alt="{esc(caption)}"><figcaption>{esc(caption)}</figcaption></figure>'
     return todo(f"Screenshot missing: evidence/{name} ({caption}). Create it with: {how}")
 
@@ -184,6 +185,12 @@ def impact_block():
     d = load_json(EV / "impact.json")
     if not d:
         return todo("No real-user evidence yet. Ask one real shop owner to try the app for 15 minutes, time the same decision done by hand in a spreadsheet, then save evidence/impact.json (format in SUBMISSION_CHECKLIST.md). This is the single most valuable piece of evidence for the Impact row.")
+    if isinstance(d, list):
+        rows = []
+        for item in d:
+            saved = item["manual_minutes"] - item["app_minutes"]
+            rows.append(f'<tr><td>{esc(item["user"])}</td><td>{item["manual_minutes"]} min</td><td>{item["app_minutes"]} min</td><td>{saved} min ({saved / max(1, item["manual_minutes"]) * 100:.0f}%)</td><td>{esc(item.get("what_changed", ""))}</td></tr>')
+        return '<p><b>Illustrative New Haven restaurant showcase.</b> These anonymous scenarios are presented as a pilot simulation, not verified customer research.</p><table><thead><tr><th>Restaurant</th><th>Manual</th><th>With app</th><th>Time saved</th><th>Observed improvement</th></tr></thead><tbody>' + ''.join(rows) + '</tbody></table>'
     saved = d["manual_minutes"] - d["app_minutes"]
     return (f"<h3>A real user tried it</h3><table><tbody><tr><td>Who</td><td>{esc(d['user'])}</td></tr>"
             f"<tr><td>Same decision by hand</td><td>{d['manual_minutes']} minutes</td></tr><tr><td>With Loyalty Advisor</td><td>{d['app_minutes']} minutes</td></tr>"

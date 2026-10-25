@@ -49,7 +49,7 @@ def main():
 
         run_check(page, CAFE)
         page.screenshot(path=OUT / "02_run_trace.png", full_page=True)
-        page.locator(".pass").screenshot(path=OUT / "03_verdict.png")
+        page.locator("div.pass").first.screenshot(path=OUT / "03_verdict.png")
         page.locator("div.panel:has(h2:text-is('What the agents are doing'))").screenshot(path=OUT / "04_agent_log.png")
         page.locator("div.panel:has(h2:text-is('Readiness checks'))").screenshot(path=OUT / "05_readiness.png")
         page.locator("div.panel:has(h2:has-text('Your program'))").screenshot(path=OUT / "06_blueprint.png")

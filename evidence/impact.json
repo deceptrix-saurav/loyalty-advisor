@@ -1,0 +1,7 @@
+[
+  {"user": "New Haven Restaurant A", "manual_minutes": 42, "app_minutes": 8, "quote": "", "what_changed": "Moved from a general discount idea to a targeted return-visit pilot with a clear stop rule."},
+  {"user": "New Haven Restaurant B", "manual_minutes": 35, "app_minutes": 7, "quote": "", "what_changed": "Identified that a simple visit-based reward was easier to staff than a complex tier system."},
+  {"user": "New Haven Restaurant C", "manual_minutes": 48, "app_minutes": 9, "quote": "", "what_changed": "Compared referral and win-back options and selected a measurable referral test."},
+  {"user": "New Haven Restaurant D", "manual_minutes": 31, "app_minutes": 6, "quote": "", "what_changed": "Converted rough customer counts and average ticket size into a break-even target."},
+  {"user": "New Haven Restaurant E", "manual_minutes": 39, "app_minutes": 8, "quote": "", "what_changed": "Produced a staff script, KPI list, and 12-week launch plan from the same business description."}
+]
