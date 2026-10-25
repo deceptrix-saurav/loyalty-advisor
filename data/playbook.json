@@ -1,0 +1,22 @@
+{
+  "_about": "Short practical principles the analyst agent can look up. Paraphrased general loyalty-program practice plus lessons from the author's airport loyalty whitepaper (Aeroknots / Delhi Airport). No statistics are claimed here.",
+  "entries": {
+    "start_simple": "Start with the simplest program your customers can understand in one sentence. A pilot with your regulars teaches more than a perfect plan. Add tiers, apps and partners only after the basic version works.",
+    "reachable_reward": "Customers lose interest if the first reward feels far away. Aim for a first reward within 4 to 6 visits for frequent businesses, or within one or two purchases for rare, big-ticket ones.",
+    "reward_choice": "Reward with something that customers value more than it costs you: a free item with a high margin, a service add-on, or early access. A cash discount on everything costs the most.",
+    "capture_contact": "A program only works if you can recognise the customer. Capture a phone number at billing, with consent. Without it you cannot measure whether members really visit more.",
+    "measure_with_control": "Compare members against similar non-members before and after joining. If members were already your best customers, rewards just hand them a discount for what they would have done anyway.",
+    "cannibalisation": "Most reward cost goes to customers who would have bought anyway. The program only pays if the extra visits it creates earn more profit than all the rewards given. That is the break-even lift in this tool.",
+    "breakage": "Some rewards are never claimed (breakage). It lowers your cost but too much of it means the reward is too hard or too confusing. Aim for a healthy middle, not zero and not nearly all.",
+    "tiers_need_volume": "Tiers only work when you have enough frequent, high-spending customers. With few regulars the top tier is empty or full of people who would have stayed anyway.",
+    "paid_membership": "Paid membership suits businesses with very frequent visits where the discount is used every week. Price the fee at about what a typical member saves, so the discount is paid for even if visits do not rise.",
+    "referral_limits": "Cap referral rewards at a fraction of what a new customer is worth in their first year, and pay only after the friend's first purchase, to stop self-referral.",
+    "abuse_control": "Stamp cards get photocopied and points get shared. Use a numbered or signed card, limit one stamp per bill, and keep a simple rule for staff.",
+    "privacy": "If you collect phone numbers or send messages, get clear consent and keep the data safe. Follow local data-protection rules such as India's DPDP Act 2023 or the EU GDPR.",
+    "thin_margins_lesson": "In the airport loyalty program I studied, shops already paid a large share of sales in fees and had thin margins, so adding 1% to 10% of reward cost made many hesitate. The lesson: check your margin before promising rewards.",
+    "impulse_lesson": "The same airport study found that much buying was impulsive, so sales rose only for planned purchases. If your customers rarely plan to return, a loyalty program has little to work on.",
+    "who_pays_lesson": "The airport program struggled over who funds the points. Decide up front who pays for rewards (you, a supplier, a partner) and cap the giveaway as a share of sales.",
+    "winner_takes_all_lesson": "When customers could earn at many shops but redeem at a few, the others felt they were funding someone else's sales. If you join a shared program with neighbours, check that rewards come back to you.",
+    "own_program_lesson": "Customers may already hold other loyalty cards. Your program has to be easier or more rewarding than the ones they carry, or it will go unused."
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "_note": "Fill these three numbers from the course pricing page for gpt-6-luna (USD per 1 million tokens). Until you do, the app and scripts report tokens only and print 'set pricing.json' instead of a cost. Do not guess.",
+  "currency": "USD",
+  "input_per_million": null,
+  "cached_input_per_million": null,
+  "output_per_million": null
+}

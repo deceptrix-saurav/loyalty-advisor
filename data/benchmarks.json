@@ -1,0 +1,43 @@
+{
+  "_about": "Planning defaults. They are NOT measured industry statistics: every one has a 'basis' and is shown to the user as an assumption they can replace.",
+  "business_types": {
+    "cafe_restaurant": {"label": "Cafe, restaurant or food stall", "gross_margin_pct": 65, "visits_per_month_regular": 4, "regular_share_pct": 55},
+    "bakery_sweets":   {"label": "Bakery or sweet shop", "gross_margin_pct": 55, "visits_per_month_regular": 3, "regular_share_pct": 55},
+    "grocery":         {"label": "Grocery, kirana or supermarket", "gross_margin_pct": 20, "visits_per_month_regular": 6, "regular_share_pct": 70},
+    "pharmacy":        {"label": "Pharmacy", "gross_margin_pct": 25, "visits_per_month_regular": 1.5, "regular_share_pct": 60},
+    "salon_spa":       {"label": "Salon or spa", "gross_margin_pct": 60, "visits_per_month_regular": 0.8, "regular_share_pct": 60},
+    "fashion_retail":  {"label": "Clothing, footwear or gifts", "gross_margin_pct": 45, "visits_per_month_regular": 0.4, "regular_share_pct": 35},
+    "electronics":     {"label": "Electronics or appliances", "gross_margin_pct": 18, "visits_per_month_regular": 0.15, "regular_share_pct": 20},
+    "online_store":    {"label": "Online store", "gross_margin_pct": 45, "visits_per_month_regular": 0.3, "regular_share_pct": 30},
+    "other_service":   {"label": "Other service (repair, tuition, studio)", "gross_margin_pct": 55, "visits_per_month_regular": 1, "regular_share_pct": 50}
+  },
+  "default_basis": "Planning default for this type of business. Replace it with your own number.",
+  "scenarios": {
+    "pessimistic": {"uplift_pct": 2,  "enroll_mult": 0.6, "referral_pct": 2,  "paid_enroll_pct": 3,  "paid_uplift_pct": 5},
+    "expected":    {"uplift_pct": 6,  "enroll_mult": 1.0, "referral_pct": 5,  "paid_enroll_pct": 8,  "paid_uplift_pct": 12},
+    "optimistic":  {"uplift_pct": 12, "enroll_mult": 1.3, "referral_pct": 10, "paid_enroll_pct": 15, "paid_uplift_pct": 20}
+  },
+  "scenario_basis": "Planning assumptions, not measurements. 'Lift' means how much more members spend than they did before joining. A 90-day pilot replaces them with your own data.",
+  "enrollment_pct_of_regulars": {"none": 20, "phone_number": 35, "pos_app": 45},
+  "designs": {
+    "punch_card": {"label": "Stamp card", "kind": "spend", "tagline": "Buy a set number, get the next one free.",
+      "goal_fit": {"frequency": 1.0, "basket": 0.3, "win_back": 0.5, "referral": 0.1, "data": 0.3},
+      "freq_range": [2, 12], "min_margin": 25, "tech_need": 0, "admin_hours_week": 0.5, "min_regular_share": 40, "breakage_pct": 15},
+    "points": {"label": "Points on spend", "kind": "spend", "tagline": "Earn points on every bill, swap them for rewards.",
+      "goal_fit": {"frequency": 0.7, "basket": 0.9, "win_back": 0.6, "referral": 0.2, "data": 0.9},
+      "freq_range": [1, 8], "min_margin": 20, "tech_need": 1, "admin_hours_week": 1.5, "min_regular_share": 35, "breakage_pct": 25},
+    "tiers": {"label": "Silver and Gold tiers", "kind": "spend", "tagline": "The more you spend in a year, the better your perks.",
+      "goal_fit": {"frequency": 0.7, "basket": 0.8, "win_back": 0.4, "referral": 0.3, "data": 0.8},
+      "freq_range": [3, 15], "min_margin": 35, "tech_need": 2, "admin_hours_week": 2, "min_regular_share": 50, "breakage_pct": 20},
+    "cashback": {"label": "Cashback wallet", "kind": "spend", "tagline": "A slice of each bill comes back as store credit.",
+      "goal_fit": {"frequency": 0.6, "basket": 0.7, "win_back": 0.9, "referral": 0.2, "data": 0.6},
+      "freq_range": [0.5, 6], "min_margin": 25, "tech_need": 1, "admin_hours_week": 1.5, "min_regular_share": 30, "breakage_pct": 15},
+    "referral": {"label": "Refer-a-friend rewards", "kind": "referral", "tagline": "Both the member and the friend get a reward on the friend's first purchase.",
+      "goal_fit": {"frequency": 0.1, "basket": 0.2, "win_back": 0.3, "referral": 1.0, "data": 0.4},
+      "freq_range": [0.1, 4], "min_margin": 40, "tech_need": 0, "admin_hours_week": 1, "min_regular_share": 15, "breakage_pct": 0},
+    "paid_membership": {"label": "Paid membership", "kind": "paid", "tagline": "A small monthly fee buys a standing discount.",
+      "goal_fit": {"frequency": 0.8, "basket": 0.4, "win_back": 0.2, "referral": 0.2, "data": 0.5},
+      "freq_range": [4, 30], "min_margin": 40, "tech_need": 1, "admin_hours_week": 2, "min_regular_share": 60, "breakage_pct": 0}
+  },
+  "score_weights": {"goal": 30, "frequency": 20, "regulars": 15, "tech": 15, "margin": 10, "effort": 10}
+}

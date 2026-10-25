@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loyalty Advisor: should your business run a loyalty program?</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <h1>Loyalty Advisor</h1>
+      <span>Should your business run a loyalty program, and if so, exactly which one?</span>
+    </div>
+  </div>
+  <div id="banner" class="banner" hidden></div>
+</header>
+<main>
+  <div class="grid">
+    <form id="form" class="panel" autocomplete="off">
+      <h2>Tell us about your business</h2>
+      <p class="hint">Describe it in your own words, or fill in the boxes. We calculate the rest and tell you what we assumed.</p>
+      <label class="f" for="text">Your business</label>
+      <textarea id="text" maxlength="2000" placeholder="Example: I run a small cafe. About 100 customers a day, average bill 250 rupees. We save phone numbers on WhatsApp."></textarea>
+      <div class="chips" id="chips" aria-label="Examples"></div>
+
+      <div class="row2">
+        <div><label class="f" for="business_type">Type of business</label>
+          <select id="business_type"><option value="">Auto: from text</option></select></div>
+        <div><label class="f" for="currency">Currency</label>
+          <select id="currency"><option>₹</option><option>$</option><option>£</option><option>€</option></select></div>
+        <div><label class="f" for="monthly_transactions">Bills or orders a month</label><input id="monthly_transactions" type="number" min="10" step="10" placeholder="e.g. 3000"></div>
+        <div><label class="f" for="avg_bill">Average bill</label><input id="avg_bill" type="number" min="1" step="any" placeholder="e.g. 250"></div>
+        <div><label class="f" for="gross_margin_pct">Profit margin on sales (%)</label><input id="gross_margin_pct" type="number" min="1" max="95" step="1" placeholder="after cost of goods"></div>
+        <div><label class="f" for="regular_share_pct">Sales from returning customers (%)</label><input id="regular_share_pct" type="number" min="0" max="100" step="1"></div>
+      </div>
+
+      <div class="row2">
+        <div><label class="f" for="goal">Main goal</label>
+          <select id="goal"><option value="">Auto: come back more often</option>
+            <option value="frequency">Come back more often</option><option value="basket">Spend more per visit</option>
+            <option value="win_back">Win back lapsed customers</option><option value="referral">Get friends to come</option>
+            <option value="data">Learn about my customers</option></select></div>
+        <div><label class="f" for="tech">How do you recognise customers?</label>
+          <select id="tech"><option value="">Auto: paper only</option><option value="none">Paper only</option>
+            <option value="phone_number">Phone number at billing</option><option value="pos_app">Billing software or app</option></select></div>
+      </div>
+
+      <details class="adv">
+        <summary>More details (optional)</summary>
+        <div class="row2">
+          <div><label class="f" for="visits_per_month_regular">Visits a month, per regular</label><input id="visits_per_month_regular" type="number" min="0.05" step="any"></div>
+          <div><label class="f" for="owner_hours_per_week">Your hours a week for this</label><input id="owner_hours_per_week" type="number" min="0" step="0.5"></div>
+          <div><label class="f" for="max_giveaway_pct">Most you would give back (% of sales)</label><input id="max_giveaway_pct" type="number" min="0.5" max="30" step="0.5"></div>
+          <div><label class="f" for="setup_cost">One-time setup cost</label><input id="setup_cost" type="number" min="0" step="any"></div>
+          <div><label class="f" for="tool_cost_month">Software cost a month</label><input id="tool_cost_month" type="number" min="0" step="any"></div>
+          <div><label class="f" for="hourly_value">Value of an hour of your time</label><input id="hourly_value" type="number" min="0" step="any"></div>
+          <div><label class="f" for="design_key">Evaluate this design</label>
+            <select id="design_key"><option value="">Best match</option></select></div>
+          <div><label class="f" for="mode">AI mode</label>
+            <select id="mode"><option value="">Default</option><option value="agentic">Full agent</option><option value="lean">Lean (cheaper)</option></select></div>
+        </div>
+        <label class="check"><input type="checkbox" id="competitor_has_program"> A rival already runs a loyalty program</label>
+      </details>
+
+      <button class="btn" id="run" type="submit">Check my business</button>
+      <p class="privacy">Your text goes to an AI model to be read. All the money calculations are done by code, not by the AI. Nothing is stored about your business.</p>
+    </form>
+
+    <div id="results" aria-live="polite">
+      <div class="panel empty" id="empty">
+        <h2>What you will get</h2>
+        <ol>
+          <li>An honest answer: launch it, run a small pilot first, or not yet.</li>
+          <li>The extra spending you need from members just to break even.</li>
+          <li>The best program type for you, with exact numbers, rules, a launch plan and the red flags that tell you to stop.</li>
+        </ol>
+        <p class="hint" style="margin-top:12px">Pick an example above the form, or describe your own business.</p>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>

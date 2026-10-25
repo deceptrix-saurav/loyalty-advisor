@@ -1,0 +1,114 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Loyalty Advisor: slides</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css"><style>
+.reveal { font-family: "Avenir Next","Segoe UI",system-ui,Arial,sans-serif; color: #14263b; font-size: 27px; }
+.reveal h1, .reveal h2, .reveal h3 { text-transform: none; color: #0f4c81; font-weight: 700; margin: 0 0 .35em; line-height: 1.1; }
+.reveal h1 { font-size: 2.5em; } .reveal h2 { font-size: 1.45em; } .reveal h3 { font-size: 1em; margin-bottom: .2em; }
+.reveal section { text-align: left; } .reveal ul { display: block; margin: 0 0 .4em 1em; } .reveal li { margin: .22em 0; line-height: 1.25; }
+.reveal .dark h1, .reveal .dark h2, .reveal .dark { color: #fff; }
+.reveal p { margin: .3em 0; } .big { font-size: 1.3em; font-weight: 700; } .sub { color: #4a5b6e; font-size: .66em; } .amber { color: #a8650f; }
+.reveal table { font-size: .62em; border-collapse: collapse; width: 100%; margin: .3em 0; } .reveal th, .reveal td { border: 1px solid #d3dae2; padding: 4px 9px; text-align: left; vertical-align: top; line-height: 1.2; } .reveal th { background: #e6eef6; }
+.reveal td.n, .reveal th.n { text-align: right; }
+.reveal figure { margin: 0 0 .3em; } .reveal figure img { max-height: 360px; max-width: 100%; border: 1px solid #d3dae2; border-radius: 6px; margin: 0; } .reveal figcaption { font-size: .55em; color: #4a5b6e; }
+.todo { background: #fff3c4; border: 3px dashed #c98a00; border-radius: 8px; padding: 10px 14px; font-size: .6em; margin: .3em 0; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: start; } .cols3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.num { font-size: 1.9em; font-weight: 800; color: #0f4c81; line-height: 1; } .card { background: #f2f4f7; border-radius: 10px; padding: 10px 16px; font-size: .78em; line-height: 1.25; }
+.card.amber { background: #fbf0dc; color: #14263b; } .card.green { background: #e3f2ec; } .card.red { background: #fbe7e4; } .chip { display: inline-block; background: #0f4c81; color: #fff; border-radius: 999px; padding: 4px 16px; font-size: .7em; margin: 0 8px 8px 0; }
+.sm { font-size: .78em; } .tight li { margin: .12em 0; }
+.foot { position: fixed; left: 24px; bottom: 10px; font-size: 13px; color: #4a5b6e; z-index: 30; }
+</style></head><body><div class="reveal"><div class="slides"><section class="dark" data-background-color="#0f4c81"><h1>Loyalty Advisor</h1>
+<p class="big">Should your business run a loyalty program? And if so, exactly which one?</p>
+<p style="margin-top:1em">An AI agent app for small business owners that checks the maths first.</p>
+<p style="margin-top:1.4em"><span class="chip">4 AI agents</span><span class="chip">6 program designs</span><span class="chip">maths in tested code</span><span class="chip">40 automated tests</span></p>
+<p style="margin-top:1.2em"><b>Saurav Shekhar</b> · MGT 409 (AI)</p>
+<aside class="notes">Introduce yourself and the course. One sentence: this app tells a shop owner whether a loyalty program will pay for itself, and designs one if it will.</aside></section><section><h2>The problem: everyone says "start a loyalty program"</h2>
+<div class="cols"><div>
+<p><b>Who has it:</b> owners of cafes, kirana stores, salons, boutiques, online shops.</p>
+<p><b>How they decide today:</b></p><ul class="tight"><li>copy the shop next door</li><li>trust an app vendor's calculator</li><li>ask a chatbot that invents a number</li></ul>
+<p><b>What nobody checks:</b> does the <i>extra</i> profit beat <i>all</i> the rewards given? Most rewards go to people who would have bought anyway.</p>
+<div class="card amber"><b>Example cafe, from the app's own engine:</b><br>gains <b>₹1,846/month</b> if members spend 6% more, but <b>loses ₹1,059/month</b> (₹12,708/year) if they spend only 2% more.</div>
+</div><div>
+<h3>Where the idea came from: my airport loyalty study</h3>
+<p class="sm">Aeroknots at Delhi Airport: about 70 million passengers a year, 400+ shops.</p>
+<ul class="sm tight"><li>Shops already paid <b>22 to 38%</b> of sales in fees and revenue share</li>
+<li>The program added <b>1.1%</b> (earn only), <b>2.0%</b> (earn + burn) or <b>10%</b> (burn only) per bill</li>
+<li>Much buying is impulsive, so the sales lift was small</li>
+<li>Nobody had settled <b>who pays for the points</b>; customers redeemed at a few "winner" shops</li>
+<li>The vendor's model lacked the detail to decide, yet commitments were made</li></ul>
+<div class="card green"><b>Lesson:</b> the same mistakes happen in small shops, where nobody is paid to catch them. This app is that check.</div></div></div>
+<aside class="notes">Stress the one question nobody asks: extra profit versus all rewards. Then explain the airport study as the origin: big operator, same failure modes. Cafe numbers are engine outputs on illustrative inputs, not field data.</aside></section><section><h2>What is new</h2>
+<table><thead><tr><th>Owner's question</th><th>Loyalty platforms (Square Loyalty, Smile.io, Loyverse)</th><th>Vendor ROI calculators</th><th>ChatGPT alone</th><th>Loyalty Advisor</th></tr></thead><tbody>
+<tr><td>Should I run one at all?</td><td>Not their job</td><td>Usually assume yes</td><td>Prose, unchecked</td><td><b>Launch / pilot / not yet</b></td></tr>
+<tr><td>How big a reward can I afford?</td><td>You choose</td><td>Optimistic inputs</td><td>May invent a figure</td><td><b>Sized to your margin</b></td></tr>
+<tr><td>Break-even lift?</td><td>Not shown</td><td>Rarely</td><td>Not reliably</td><td><b>Computed and tested</b></td></tr>
+<tr><td>Which of six designs fits me?</td><td>Their own design</td><td>No</td><td>Generic list</td><td><b>Scored and ranked</b></td></tr>
+<tr><td>Rules, scripts, plan, stop rules?</td><td>Setup screens</td><td>No</td><td>Unverified prose</td><td><b>Yes, with red flags</b></td></tr>
+<tr><td>Can I trust the figures?</td><td>n/a</td><td>Vendor interest</td><td>Not checked</td><td><b>Code computes, guard verifies</b></td></tr></tbody></table>
+<div class="cols3" style="margin-top:.5em"><div class="card"><b>Starts at "should I?"</b><br>not "how do I set it up?"</div><div class="card"><b>Maths in code</b><br>AI explains, never calculates</div><div class="card"><b>Ends with a kill switch</b><br>red flags and stop rules at week 12</div></div>
+<p class="sub">Comparison based on public descriptions of each category.</p>
+<aside class="notes">Be honest: the comparison is from how each category describes itself. The novelty is the go/no-go question, reward sizing to margin, and the verified numbers.</aside></section><section><h2>How it works</h2><svg viewBox="0 0 900 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Agent architecture" style="width:100%;height:auto;font-family:Avenir Next,Segoe UI,Arial,sans-serif">
+<defs><marker id="ar" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#4a5b6e"/></marker></defs>
+<g stroke-width="1.6" fill="none" stroke="#4a5b6e" marker-end="url(#ar)">
+<path d="M130,60 H165"/><path d="M290,60 H325"/><path d="M450,60 H485"/><path d="M610,60 H645"/>
+<path d="M705,90 V145"/><path d="M645,190 H610"/><path d="M485,190 H450"/><path d="M325,190 H290"/></g>
+<g font-size="13" text-anchor="middle" fill="#14263b">
+<rect x="10" y="30" width="120" height="60" rx="10" fill="#fff" stroke="#14263b"/><text x="70" y="57" font-weight="700">Owner</text><text x="70" y="75">plain-words text</text>
+<rect x="170" y="30" width="120" height="60" rx="10" fill="#e8ecf0" stroke="#4a5b6e"/><text x="230" y="55" font-weight="700">Input guard</text><text x="230" y="73" font-size="11">code · injection</text>
+<rect x="330" y="30" width="120" height="60" rx="10" fill="#0f4c81"/><text x="390" y="55" font-weight="700" fill="#fff">Intake</text><text x="390" y="73" font-size="11" fill="#fff">AI · text to numbers</text>
+<rect x="490" y="30" width="120" height="60" rx="10" fill="#e8ecf0" stroke="#4a5b6e"/><text x="550" y="52" font-weight="700">Engine</text><text x="550" y="68" font-size="11">code · checks, scores,</text><text x="550" y="81" font-size="11">reward size, break-even</text>
+<rect x="650" y="30" width="120" height="60" rx="10" fill="#0f4c81"/><text x="710" y="52" font-weight="700" fill="#fff">Analyst</text><text x="710" y="68" font-size="11" fill="#fff">AI · picks checks</text><text x="710" y="81" font-size="11" fill="#fff">6 read-only tools</text>
+<rect x="650" y="150" width="120" height="60" rx="10" fill="#0f4c81"/><text x="710" y="175" font-weight="700" fill="#fff">Strategist</text><text x="710" y="193" font-size="11" fill="#fff">AI · should you?</text>
+<rect x="490" y="150" width="120" height="60" rx="10" fill="#0f4c81"/><text x="550" y="175" font-weight="700" fill="#fff">Designer</text><text x="550" y="193" font-size="11" fill="#fff">AI · program + plan</text>
+<rect x="330" y="150" width="120" height="60" rx="10" fill="#e8ecf0" stroke="#4a5b6e"/><text x="390" y="172" font-weight="700">Output guard</text><text x="390" y="188" font-size="11">code · figures must be</text><text x="390" y="201" font-size="11">in the verified facts</text>
+<rect x="170" y="150" width="120" height="60" rx="10" fill="#fff" stroke="#14263b"/><text x="230" y="177" font-weight="700">Your plan</text><text x="230" y="195" font-size="11">verdict + launch kit</text>
+<rect x="10" y="250" width="880" height="44" rx="10" fill="#fbf0dc" stroke="#f2b01e"/><text x="450" y="277" font-size="13">Budget guard wraps every AI call: per-run, per-client and daily token caps, call-count cap, timeout, rate limit</text>
+</g>
+<g font-size="12" fill="#14263b"><rect x="10" y="306" width="14" height="14" rx="3" fill="#0f4c81"/><text x="30" y="318">AI agent</text><rect x="110" y="306" width="14" height="14" rx="3" fill="#e8ecf0" stroke="#4a5b6e"/><text x="130" y="318">plain code (cannot be talked out of its answer)</text></g>
+</svg>
+<div class="cols3"><div class="card green"><b>Code</b> does the maths, the verdict and every check</div><div class="card"><b>AI</b> reads messy text, chooses extra checks, explains, personalises</div><div class="card amber"><b>Budget guard</b> caps tokens, calls, time and rate on every AI call</div></div>
+<aside class="notes">Walk left to right: guard, intake, engine, analyst; then strategist, designer, output guard, plan. The key idea: whatever must be right is plain code that cannot be talked out of its answer.</aside></section><section><h2>The agents, tools and model</h2>
+<table><thead><tr><th>Component</th><th>Type</th><th>Job</th><th>Tools</th></tr></thead><tbody>
+<tr><td>Input guard</td><td>code</td><td>Cleans text, blocks injection before any AI sees it</td><td>pattern checks</td></tr>
+<tr><td>Intake</td><td>AI, structured output</td><td>Plain words to numbers; blanks instead of guesses</td><td>none</td></tr>
+<tr><td>Engine</td><td>code</td><td>Readiness checks, scores 6 designs, sizes rewards, 3 scenarios, break-even, KPIs</td><td>n/a</td></tr>
+<tr><td>Analyst</td><td>AI, tool loop (6 rounds, 8 calls)</td><td>Chooses what-ifs, comparisons and playbook lookups</td><td>check_gates, rank_designs, get_design_plan, run_economics, compare_top_designs, lookup_playbook</td></tr>
+<tr><td>Strategist</td><td>AI, structured output</td><td>"Should you do this at all?": reasons, risks, alternatives</td><td>none</td></tr>
+<tr><td>Designer</td><td>AI, structured output</td><td>Program name, customer pitch, staff script, 12-week plan</td><td>none</td></tr>
+<tr><td>Output guard</td><td>code</td><td>Verdict must match the engine; every figure must be in the facts</td><td>grounding check</td></tr></tbody></table>
+<div class="cols"><div class="card"><b>Model:</b> course model <b>gpt-5.6-luna</b> via the course Portkey key, for every agent.</div><div class="card"><b>Why one small model is enough:</b> the hard reasoning is in code; the AI extracts, picks tools and writes short plain text. One model also keeps the prompt prefix identical for caching.</div></div>
+<p class="sub">All tools are read-only and bound to one owner's profile.</p>
+<aside class="notes">Only the Analyst chooses its own steps, and it can only call read-only tools bound to the owner's profile, so it cannot reach other data or take actions.</aside></section><section><h2>Demo: one real run, step by step</h2>
+<div class="cols"><div>
+<p class="sm"><i>"I run a small cafe. About 100 customers a day, average bill 250 rupees. We save phone numbers on WhatsApp."</i></p>
+<ol class="sm tight"><li><b>Guard:</b> accepted, 0 tokens</li>
+<li><b>Intake (AI):</b> cafe, 3,000 bills a month, ₹250 bill, phone numbers</li>
+<li><b>Engine:</b> 6 of 6 checks pass; best fit <b>Stamp card</b> (100), then Paid membership (93), Points on spend (91)</li>
+<li><b>Analyst (AI):</b> compares top designs, looks up a principle</li>
+<li><b>Strategist (AI):</b> <b>Pilot first</b>: break-even lift <b>3.95%</b>, expected <b>₹1,846</b>/month, pessimistic <b>-₹1,059</b></li>
+<li><b>Designer (AI):</b> 10 stamps, reward worth ₹80, scripts, 12-week plan</li>
+<li><b>Output guard:</b> every figure checked</li></ol>
+</div><div><div class="todo"><b>TODO</b> Screenshot missing: evidence/03_verdict.png (Verdict card from a real run). Create it with: python scripts/capture_evidence.py</div><div class="todo"><b>TODO</b> Screenshot missing: evidence/06_blueprint.png (Program blueprint from a real run). Create it with: python scripts/capture_evidence.py</div></div></div>
+<aside class="notes">Do the live demo here: click the Cafe chip. Point at the agent log, the verdict card, then the blueprint and the 12-week plan. Numbers on this slide are deterministic engine outputs.</aside></section><section><h2>Four businesses, four answers</h2><table><thead><tr><th>Business</th><th>Best design</th><th>Verdict</th><th class=n>Break-even lift</th><th class=n>Pessimistic, per month</th><th class=n>Expected, per month</th></tr></thead><tbody><tr><td>Cafe</td><td>Stamp card</td><td>Pilot first</td><td class=n>3.95%</td><td class=n>-₹1,059</td><td class=n>₹1,846</td></tr><tr><td>Kirana store</td><td>Stamp card</td><td>Not yet</td><td class=n>6.88%</td><td class=n>-₹1,658</td><td class=n>-₹499</td></tr><tr><td>Salon</td><td>Refer-a-friend rewards</td><td>Launch it</td><td class=n>n/a</td><td class=n>₹523</td><td class=n>₹2,177</td></tr><tr><td>Phone shop</td><td>Stamp card</td><td>Not yet</td><td class=n>6.72%</td><td class=n>-₹344</td><td class=n>-₹87</td></tr></tbody></table>
+<div class="cols"><div class="card green"><b>Launch:</b> pays even in the pessimistic case.<br><b>Pilot first:</b> pays in the expected case only.<br><b>Not yet:</b> does not pay, or a basic need is missing.</div>
+<div class="card"><b>Basics that block a program:</b> under 25% of sales from returning customers, under 20 regular customers, or margin under 8%.<br><b>Reward sizing:</b> 80% of break-even at the expected lift, never below 1.5% of spend.</div></div>
+<div class="cols" style="margin-top:.4em"><div class="card"><b>6 designs scored out of 100:</b> goal 30, visit pattern 20, returning customers 15, tools 15, margin 10, your time 10.</div><div class="card"><b>Every plan includes:</b> exact numbers, rules, KPIs with red flags, stop rules, a 12-week launch plan.</div></div>
+<p class="sub">Live engine output on illustrative inputs. The lift scenarios (2%, 6%, 12%) are planning assumptions; the 12-week pilot replaces them with the owner's own data.</p>
+<aside class="notes">Salon launches because referral rewards only cost money when a new customer actually buys. The phone shop is not yet because few customers return. Be upfront that lift scenarios are assumptions.</aside></section><section><h2>Cost to run (tokenomics)</h2><div class="todo"><b>TODO</b> Run scripts/tokenomics.py after real runs, then rebuild: tokens per check, cached share, cost per check and cost for 10,000 users appear here.</div>
+<div class="cols" style="margin-top:.4em"><div><h3>How cost was kept down</h3><ul class="sm tight"><li>Maths is code, so model calls stay short</li><li>Form-only runs skip the Intake call</li><li>Same facts reuse a saved answer (0 tokens)</li><li>Lean mode skips the Analyst's model calls</li><li>Long identical rules first, so the prompt cache hits</li><li>Short structured outputs; tools bound to the profile</li><li>Hard caps: 30,000 tokens per run, 200,000 per client a day</li></ul></div>
+<div><h3>Did cutting cost hurt quality?</h3><div class="todo"><b>TODO</b> No real eval results yet. Run: python evals/run_evals.py --injection (needs your real key).</div></div></div>
+<aside class="notes">All token counts are measured from the usage object returned on each call, logged by the budget guard. Per-user cost assumes 6 checks a month, which is an assumption stated openly.</aside></section><section><h2>Safety: what could go wrong, and what stops it</h2>
+<div class="cols"><div><table><thead><tr><th>Risk</th><th>Defense</th></tr></thead><tbody>
+<tr><td>Prompt injection, prompt leak</td><td>Pattern + obfuscation guard, secret marker, blocked requests cost 0 tokens</td></tr>
+<tr><td>Invented numbers</td><td>Every figure must be in the verified facts; one rewrite, then a safe template</td></tr>
+<tr><td>Wrong verdict</td><td>Code decides; a different AI verdict is rejected</td></tr>
+<tr><td>Loops, wrong tool use</td><td>Max 6 rounds, 8 calls, read-only validated tools, timeout</td></tr>
+<tr><td>Overspending</td><td>Run, client and daily token caps, rate limit</td></tr>
+<tr><td>Over-confident advice</td><td>Assumptions labelled; "pilot first" when only the expected case pays</td></tr></tbody></table>
+<p class="big" style="margin-top:.3em">40 of 40 tests pass</p><p class="sm">Each test attacks one defense on purpose. Tests also caught a real crash for 2%-margin shops, now fixed.</p>
+<div class="todo"><b>TODO</b> Run python evals/run_evals.py --injection to show the attack results here.</div>
+</div><div><div class="todo"><b>TODO</b> Screenshot missing: evidence/14_injection_blocked.png (An injection attempt, blocked before any AI call). Create it with: python scripts/capture_evidence.py</div><div class="todo"><b>TODO</b> Screenshot missing: evidence/15_subtle_injection.png (A subtle manipulation that reached the model and was ignored). Create it with: python scripts/capture_evidence.py</div></div></div>
+<aside class="notes">Show the blocked-attack screenshot. Explain defense in depth: regex guard first, then the model sees owner text only as data, then the output guard checks figures and the verdict against the engine.</aside></section><section><h2>Impact, limits and next steps</h2>
+<div class="cols"><div><h3>Impact</h3><div class="todo"><b>TODO</b> Add evidence/impact.json: one real owner&#x27;s quote and before/after minutes. Then rebuild.</div>
+<ul class="sm tight"><li>One-size advice would be wrong for at least two of the four example businesses</li><li>Turns a gut-feel decision into a 12-week test with stop rules</li><li>Free, plain-language, no analyst needed</li></ul></div>
+<div><h3>Honest limits</h3><ul class="sm tight"><li>Lift scenarios are assumptions until a pilot measures them</li><li>Defaults are generic starting points (each lists its basis)</li><li>No saved history; no import of real sales data</li><li>Six designs; four currencies; not yet tested with many owners</li></ul>
+<h3>Next month</h3><ul class="sm tight"><li><b>Pilot tracker:</b> paste member vs non-member sales, get the true lift and a scale / adjust / stop call</li><li>Calibrate assumptions from many pilots</li><li>WhatsApp and Hindi for phone-first owners</li><li>Supplier-funded and partner rewards (the airport's "who pays" lesson)</li></ul></div></div>
+<p class="sub">Decision support, not financial advice. Thank you. Questions?</p>
+<aside class="notes">Close on the honest limit: the lift is assumed until measured, which is exactly why every plan ends with a pilot and stop rules.</aside></section></div></div><div class="foot">Saurav Shekhar · MGT 409 (AI) · Loyalty Advisor</div><script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script><script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script><script>Reveal.initialize({hash:true,width:1280,height:760,margin:0.05,center:false,slideNumber:"c/t",transition:"fade",plugins:[RevealNotes]});</script></body></html>
