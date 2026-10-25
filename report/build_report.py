@@ -421,6 +421,7 @@ def build_slides():
 <p class="big">Should your business run a loyalty program? And if so, exactly which one?</p>
 <p style="margin-top:1em">An AI agent app for small business owners that checks the maths first.</p>
 <p style="margin-top:1.4em"><span class="chip">4 AI agents</span><span class="chip">6 program designs</span><span class="chip">maths in tested code</span><span class="chip">{ok.group(1) if ok else '40'} automated tests</span></p>
+<p class="sm">Code repository: <a href="{esc(REPO_URL)}">{esc(REPO_URL)}</a> · Public for grading</p>
 <p style="margin-top:1.2em"><b>{esc(STUDENT_NAME)}</b> · {esc(COURSE)}</p>
 <aside class="notes">Introduce yourself and the course. One sentence: this app tells a shop owner whether a loyalty program will pay for itself, and designs one if it will.</aside></section>""")
     s.append(f"""<section><h2>The problem: everyone says "start a loyalty program"</h2>
