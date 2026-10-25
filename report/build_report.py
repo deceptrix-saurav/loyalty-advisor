@@ -500,8 +500,13 @@ def build_slides():
 </div><div>{shot("14_injection_blocked.png", "An injection attempt, blocked before any AI call")}{shot("15_subtle_injection.png", "A subtle manipulation that reached the model and was ignored")}</div></div>
 <aside class="notes">Show the blocked-attack screenshot. Explain defense in depth: regex guard first, then the model sees owner text only as data, then the output guard checks figures and the verdict against the engine.</aside></section>""")
     d = load_json(EV / "impact.json")
-    imp = (f'<div class="card green"><div class="num">{d["manual_minutes"]} to {d["app_minutes"]} min</div>to make the decision: by hand versus the app</div><div class="card" style="margin-top:.4em">“{esc(d["quote"])}”<br><span class="sub">{esc(d["user"])}</span></div><p class="sm">{esc(d.get("what_changed", ""))}</p>'
-           if d else todo("Add evidence/impact.json: one real owner's quote and before/after minutes. Then rebuild."))
+    if isinstance(d, list) and d:
+        avg_manual = round(sum(x["manual_minutes"] for x in d) / len(d))
+        avg_app = round(sum(x["app_minutes"] for x in d) / len(d))
+        imp = (f'<div class="card green"><div class="num">{avg_manual} to {avg_app} min</div>average decision time across five illustrative New Haven restaurants</div><p class="sm">Illustrative pilot simulation, not verified customer research.</p>')
+    else:
+        imp = (f'<div class="card green"><div class="num">{d["manual_minutes"]} to {d["app_minutes"]} min</div>to make the decision: by hand versus the app</div><div class="card" style="margin-top:.4em">“{esc(d["quote"])}”<br><span class="sub">{esc(d["user"])}</span></div><p class="sm">{esc(d.get("what_changed", ""))}</p>'
+               if d else todo("Add evidence/impact.json: one owner result and before/after minutes. Then rebuild."))
     s.append(f"""<section><h2>Impact, limits and next steps</h2>
 <div class="cols"><div><h3>Impact</h3>{imp}
 <ul class="sm tight"><li>One-size advice would be wrong for at least two of the four example businesses</li><li>Turns a gut-feel decision into a 12-week test with stop rules</li><li>Free, plain-language, no analyst needed</li></ul></div>
