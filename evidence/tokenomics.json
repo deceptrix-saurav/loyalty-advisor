@@ -13,6 +13,7 @@
       "cache_share_of_input_pct": 32.6,
       "avg_model_calls": 3.5,
       "avg_model_time_s": 16.1,
+      "per_agent_avg": {},
       "cost_per_run": 0.002123,
       "cost_per_user_month": 0.012738,
       "cost_100_users_month": 1.2738,
