@@ -1,7 +1,22 @@
 {
-  "measured_runs": 0,
+  "measured_runs": 12,
   "runs_per_user_month_assumption": 6,
   "currency": "USD",
-  "priced": false,
-  "modes": {}
+  "priced": true,
+  "pricing_basis": "Illustrative proxy: OpenAI gpt-4o-mini public rates, not official gpt-5.6-luna course pricing.",
+  "modes": {
+    "lean": {
+      "runs": 12,
+      "avg_input_tokens": 6567,
+      "avg_cached_tokens": 2139,
+      "avg_output_tokens": 2164,
+      "cache_share_of_input_pct": 32.6,
+      "avg_model_calls": 3.5,
+      "avg_model_time_s": 16.1,
+      "cost_per_run": 0.002123,
+      "cost_per_user_month": 0.012738,
+      "cost_100_users_month": 1.2738,
+      "cost_10000_users_month": 127.38
+    }
+  }
 }

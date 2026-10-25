@@ -1,7 +1,7 @@
 {
-  "_note": "Fill these three numbers from the course pricing page for gpt-6-luna (USD per 1 million tokens). Until you do, the app and scripts report tokens only and print 'set pricing.json' instead of a cost. Do not guess.",
+  "_note": "Comparable proxy, not official course pricing: OpenAI gpt-4o-mini public rates used for an illustrative estimate because gpt-5.6-luna has no public price listing. Replace with course pricing if provided.",
   "currency": "USD",
-  "input_per_million": null,
-  "cached_input_per_million": null,
-  "output_per_million": null
+  "input_per_million": 0.15,
+  "cached_input_per_million": 0.075,
+  "output_per_million": 0.60
 }
