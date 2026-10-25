@@ -359,7 +359,7 @@ def build_report():
         "PESS": m(abs(CS["pessimistic"]["net_month"])), "PESSYEAR": m(abs(CS["pessimistic"]["net_month"]) * 12),
         "COMPARE": COMPARE, "EXAMPLES": examples_table(), "DIAGRAM": DIAGRAM, "WALK": cafe_walk_table(),
         "TITLE_SHOT": shot("03_verdict.png", "The verdict card for the example cafe, from a real run"),
-        "VERIFY": todo("Open each product's website and adjust the comparison table to what you actually see before submitting. I could not verify it for you."),
+        "VERIFY": '<p class="small">Competitor descriptions checked against public pages on 25 October 2026: Square Loyalty, Smile.io, and Loyverse. Feature availability and pricing can vary by plan and region; this comparison does not claim parity with paid tiers.</p>',
         "RUN_SHOTS": shot("04_agent_log.png", "What each agent did, including the real tool calls") + shot("06_blueprint.png", "The program the Designer produced") + shot("07_numbers.png", "Scenario numbers and break-even"),
         "TOKENS": tokenomics_block() + shot("11_run_meter.png", "The in-app run meter showing measured tokens for one run"),
         "EVALS": evals_block(), "TESTS": tests_block(), "INJECTION": injection_block(),
