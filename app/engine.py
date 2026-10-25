@@ -51,7 +51,7 @@ class ProfileError(ValueError):
 
 
 # --------------------------------------------------------------------------- formatting
-def fmt(x: float, cur: str = "₹") -> str:
+def fmt(x: float, cur: str = "$") -> str:
     """Money with grouping suited to the currency. 12345.6 -> '₹12,346'."""
     n = round(x) if abs(x) >= 100 else round(x, 1)
     sign = "-" if n < 0 else ""
@@ -120,7 +120,7 @@ def complete_profile(partial: dict) -> tuple[dict, list[dict]]:
     }
     p = {"name": str(partial.get("name") or "Your business")[:60], "business_type": bt,
          "monthly_transactions": float(partial["monthly_transactions"]), "avg_bill": float(partial["avg_bill"]),
-         "currency": partial.get("currency") if partial.get("currency") in CURRENCIES else "₹",
+         "currency": partial.get("currency") if partial.get("currency") in CURRENCIES else "$",
          "competitor_has_program": bool(partial.get("competitor_has_program"))}
     assumed = []
     for f, (default, why) in spec.items():

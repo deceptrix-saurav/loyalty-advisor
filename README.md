@@ -26,7 +26,7 @@ Open http://localhost:8000.
 If your Portkey setup needs a provider, virtual key or config, set the optional `PORTKEY_*` lines in `.env.example`. All model HTTP code is in `app/llm.py`.
 
 ## Try it
-Click an example chip (Cafe, Kirana store, Salon, Phone shop) and press **Check my business**. The four examples give four different answers.
+Click an example chip (Cafe, Grocery store, Salon, Phone shop) and press **Check my business**. The examples use US dollars by default and give four different answers.
 
 ## How it works
 ```

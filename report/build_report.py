@@ -65,16 +65,16 @@ def load_json(path):
         return None
 
 
-def m(x, cur="₹"):
+def m(x, cur="$"):
     return engine.fmt(x, cur)
 
 
 # ----------------------------------------------------------------------------- live examples (real engine output)
 EXAMPLES = {
-    "Cafe": dict(business_type="cafe_restaurant", monthly_transactions=3000, avg_bill=250, tech="phone_number", goal="frequency"),
-    "Kirana store": dict(business_type="grocery", monthly_transactions=6000, avg_bill=400, tech="none", gross_margin_pct=18),
-    "Salon": dict(business_type="salon_spa", monthly_transactions=300, avg_bill=900, tech="phone_number", goal="referral"),
-    "Phone shop": dict(business_type="electronics", monthly_transactions=120, avg_bill=15000),
+    "Cafe": dict(business_type="cafe_restaurant", monthly_transactions=3000, avg_bill=25, tech="phone_number", goal="frequency", currency="$"),
+    "Grocery store": dict(business_type="grocery", monthly_transactions=6000, avg_bill=40, tech="none", gross_margin_pct=18, currency="$"),
+    "Salon": dict(business_type="salon_spa", monthly_transactions=300, avg_bill=90, tech="phone_number", goal="referral", currency="$"),
+    "Phone shop": dict(business_type="electronics", monthly_transactions=120, avg_bill=1500, currency="$"),
 }
 RUNS = {}
 for name, f in EXAMPLES.items():
@@ -296,7 +296,7 @@ REPORT = """<!doctype html><html lang="en"><head><meta charset="utf-8"><meta nam
 <h3>Models</h3>
 <p>All agents use the course model <code>gpt-5.6-luna</code> through the course Portkey key. The tasks are extraction, tool selection and short plain-language writing; the hard reasoning lives in code. That is why one small, cheap model is enough, and why using one model for every agent keeps the prompt prefix identical so the provider's prompt cache can reuse it. Section 4 measures whether this holds up.</p>
 <h3>One run, step by step</h3>
-<p>Example input: <i>"I run a small cafe. About 100 customers a day, average bill 250 rupees. We save phone numbers on WhatsApp. I want people to come back more often."</i></p>
+<p>Example input: <i>"I run a small cafe in New Haven. About 100 customers a day, average bill $25. We save phone numbers. I want people to come back more often."</i></p>
 @@WALK@@
 @@RUN_SHOTS@@
 
@@ -355,7 +355,7 @@ def build_report():
         "CSS": CSS_REPORT, "COURSE": esc(COURSE), "NAME": esc(STUDENT_NAME) if not STUDENT_NAME.startswith("TODO") else todo(STUDENT_NAME),
         "REPO": esc(REPO_URL) if not REPO_URL.startswith("TODO") else todo(REPO_URL),
         "APP": esc(APP_URL) if APP_URL else "Runs locally from the repo (see README)",
-        "BILL": m(250), "RR": f"{CE['reward_rate_pct']:g}", "EXP": m(CS["expected"]["net_month"]),
+        "BILL": m(25), "RR": f"{CE['reward_rate_pct']:g}", "EXP": m(CS["expected"]["net_month"]),
         "PESS": m(abs(CS["pessimistic"]["net_month"])), "PESSYEAR": m(abs(CS["pessimistic"]["net_month"]) * 12),
         "COMPARE": COMPARE, "EXAMPLES": examples_table(), "DIAGRAM": DIAGRAM, "WALK": cafe_walk_table(),
         "TITLE_SHOT": shot("03_verdict.png", "The verdict card for the example cafe, from a real run"),
@@ -468,9 +468,9 @@ def build_slides():
 <aside class="notes">Only the Analyst chooses its own steps, and it can only call read-only tools bound to the owner's profile, so it cannot reach other data or take actions.</aside></section>""")
     s.append(f"""<section><h2>Demo: one real run, step by step</h2>
 <div class="cols"><div>
-<p class="sm"><i>"I run a small cafe. About 100 customers a day, average bill 250 rupees. We save phone numbers on WhatsApp."</i></p>
+<p class="sm"><i>"I run a small cafe in New Haven. About 100 customers a day, average bill $25. We save phone numbers."</i></p>
 <ol class="sm tight"><li><b>Guard:</b> accepted, 0 tokens</li>
-<li><b>Intake (AI):</b> cafe, 3,000 bills a month, {m(250)} bill, phone numbers</li>
+<li><b>Intake (AI):</b> cafe, 3,000 bills a month, {m(25)} bill, phone numbers</li>
 <li><b>Engine:</b> {gates_ok} of {len(A['gates'])} checks pass; best fit <b>{top[0]['label']}</b> ({top[0]['score']}), then {top[1]['label']} ({top[1]['score']}), {top[2]['label']} ({top[2]['score']})</li>
 <li><b>Analyst (AI):</b> compares top designs, looks up a principle</li>
 <li><b>Strategist (AI):</b> <b>{engine.VERDICT_LABEL[A['verdict']['code']]}</b>: break-even lift <b>{E['break_even_lift_pct']:g}%</b>, expected <b>{m(CS['expected']['net_month'])}</b>/month, pessimistic <b>{m(CS['pessimistic']['net_month'])}</b></li>

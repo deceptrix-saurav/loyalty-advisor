@@ -22,16 +22,16 @@
       <h2>Tell us about your business</h2>
       <p class="hint">Describe it in your own words, or fill in the boxes. We calculate the rest and tell you what we assumed.</p>
       <label class="f" for="text">Your business</label>
-      <textarea id="text" maxlength="2000" placeholder="Example: I run a small cafe. About 100 customers a day, average bill 250 rupees. We save phone numbers on WhatsApp."></textarea>
+      <textarea id="text" maxlength="2000" placeholder="Example: I run a small cafe in New Haven. About 100 customers a day, average bill $25. We save phone numbers."></textarea>
       <div class="chips" id="chips" aria-label="Examples"></div>
 
       <div class="row2">
         <div><label class="f" for="business_type">Type of business</label>
           <select id="business_type"><option value="">Auto: from text</option></select></div>
         <div><label class="f" for="currency">Currency</label>
-          <select id="currency"><option>₹</option><option>$</option><option>£</option><option>€</option></select></div>
+          <select id="currency"><option>$</option><option>₹</option><option>£</option><option>€</option></select></div>
         <div><label class="f" for="monthly_transactions">Bills or orders a month</label><input id="monthly_transactions" type="number" min="10" step="10" placeholder="e.g. 3000"></div>
-        <div><label class="f" for="avg_bill">Average bill</label><input id="avg_bill" type="number" min="1" step="any" placeholder="e.g. 250"></div>
+        <div><label class="f" for="avg_bill">Average bill (USD)</label><input id="avg_bill" type="number" min="1" step="any" placeholder="e.g. 25"></div>
         <div><label class="f" for="gross_margin_pct">Profit margin on sales (%)</label><input id="gross_margin_pct" type="number" min="1" max="95" step="1" placeholder="after cost of goods"></div>
         <div><label class="f" for="regular_share_pct">Sales from returning customers (%)</label><input id="regular_share_pct" type="number" min="0" max="100" step="1"></div>
       </div>
