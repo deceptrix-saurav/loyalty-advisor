@@ -34,10 +34,10 @@ const FIELD = { gross_margin_pct: "Profit margin on sales (%)", regular_share_pc
   owner_hours_per_week: "Your hours a week", setup_cost: "One-time setup cost", tool_cost_month: "Software cost a month", hourly_value: "Value of an hour of your time",
   tech: "How you recognise customers", goal: "Main goal", max_giveaway_pct: "Most you would give back (% of sales)" };
 const EXAMPLES = [
-  ["Cafe", "I run a small cafe. About 100 customers a day, average bill 250 rupees. We save phone numbers on WhatsApp. I want people to come back more often."],
-  ["Kirana store", "Neighbourhood kirana store with about 200 customers a day and an average bill of 400 rupees. Our profit margin is around 18%. We only use paper bills."],
-  ["Salon", "Hair salon with 10 customers a day, average bill 900 rupees. We save phone numbers. I mostly want friends of my customers to come."],
-  ["Phone shop", "Mobile phone and electronics shop, 4 customers a day, average bill 15000 rupees. People rarely come back."],
+  ["Cafe", "I run a small cafe in New Haven. About 100 customers a day, average bill $25. We save phone numbers. I want people to come back more often."],
+  ["Grocery store", "Neighborhood grocery store with about 200 customers a day and an average bill of $40. Our profit margin is around 18%. We only use paper bills."],
+  ["Salon", "Hair salon with 10 customers a day, average bill $90. We save phone numbers. I mostly want friends of my customers to come."],
+  ["Phone shop", "Mobile phone and electronics shop, 4 customers a day, average bill $1,500. People rarely come back."],
 ];
 
 for (const [k, v] of Object.entries(TYPES)) $("business_type").append(el("option", { value: k }, v));
